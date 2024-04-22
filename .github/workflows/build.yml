@@ -44,5 +44,5 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"kiloecho-sonar_CSharpExample" /o:"kiloecho-sonar" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sc-staging.io"
-          MSBuild.exe SomeConsoleApplication.sln /t:Rebuild
+          .\.sonar\scanner\dotnet-sonarscanner dotnet build
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
